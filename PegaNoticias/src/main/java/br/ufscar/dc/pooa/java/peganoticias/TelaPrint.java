@@ -5,6 +5,8 @@
  */
 package br.ufscar.dc.pooa.java.peganoticias;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author moleke
@@ -12,10 +14,10 @@ package br.ufscar.dc.pooa.java.peganoticias;
 public class TelaPrint extends ModelPrint{
 
     @Override
-    public void Print(HtmlAttribute attributes) {
-        System.out.println("Atributos da URL: " + attributes.getUrl());
-        for(int i = 0 ; i < attributes.getAttributesSize(); i++){
-            System.out.println(attributes.getAttribute(i));
+    public void Print(ArrayList<HtmlAttribute> attributes) {
+        System.out.println("Atributos da URL: " + attributes.get(0).getUrl());
+        for(int i = 0 ; i < attributes.get(0).getAttributesSize(); i++){
+            System.out.println(attributes.get(0).getAttribute(i));
         }
     }
     

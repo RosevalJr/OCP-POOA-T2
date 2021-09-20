@@ -16,7 +16,7 @@ public class HtmlAttribute {
     private final String className;
     private final String argument;
     
-    // Onde sera armazenado os atributos encontrados.
+    // Estrutura para armazenar os atributos encontrados.
     private final ArrayList<String> attributes;
     
     // Inicializa todas as variaveis finais.
@@ -27,28 +27,6 @@ public class HtmlAttribute {
         this.argument = argument;
         this.attributes = new ArrayList<>();
         
-    }
-    
-    // Preenche a estrutura com os argumentos encontrados.
-    public void getHtmlAttribute(){
-        Document doc = null;
-        try {
-            doc = Jsoup.connect(this.url).get();
-        } catch (IOException ex) {
-            Logger.getLogger(HtmlAttribute.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        Elements noticias = doc.select(this.type + "." + this.className);
-        
-        if(this.argument.equals("text"))
-            noticias.forEach(n -> {
-                attributes.add(n.text());
-            });
-        else
-            noticias.forEach(n -> {
-                attributes.add(n.attr(this.argument));
-            });
-            
     }
     
     public String getAttribute(int i){
@@ -73,5 +51,26 @@ public class HtmlAttribute {
     
     public String getArgument(){
         return this.argument;
+    }
+    
+    // Preenche a estrutura com os argumentos encontrados.
+    public void getHtmlAttribute(){
+        Document doc = null;
+        try {
+            doc = Jsoup.connect(this.url).get();
+        } catch (IOException ex) {
+            Logger.getLogger(HtmlAttribute.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Elements noticias = doc.select(this.type + "." + this.className);
+        
+        if(this.argument.equals("text"))
+            noticias.forEach(n -> {
+                attributes.add(n.text());
+            });
+        else
+            noticias.forEach(n -> {
+                attributes.add(n.attr(this.argument));
+            });
     }
 }
