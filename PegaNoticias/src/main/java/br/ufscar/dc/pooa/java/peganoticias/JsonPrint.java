@@ -13,23 +13,19 @@ import java.util.logging.Logger;
 public class JsonPrint extends ModelPrint{
 
     @Override
-    public void Print(Noticias noticias) {
+    public void Print(HtmlAttribute attributes) {
         // Define o formato da hora.
         String horaAgora = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss")
                     .format(LocalDateTime.now());
         
         // Abre um arquivo
         try(PrintWriter pw = new PrintWriter(new FileWriter(new File
-            (String.format("dump-%s.csv", horaAgora))))){
+            (String.format("%s-%s.csv",attributes.getArgument(), horaAgora))))){
            // Escreve o cabecalho.
-           pw.println("Notícia;Link");
-           // Conecta com o link do site.
-
-           ArrayList<TituloLinkBean> listaNoticias = noticias.getNoticias();
+           pw.println("Noticia");
            
-            for(int i = 0 ; i < listaNoticias.size(); i++){
-               pw.print(String.format("%s;", listaNoticias.get(i).getTitulo()));
-               pw.print(String.format("\"%s\"", listaNoticias.get(i).getLink()));
+            for(int i = 0 ; i < attributes.getAttributesSize(); i++){
+               pw.print(String.format("%s;", attributes.getAttribute(i)));
                pw.print("\n");
             }
         } catch (IOException ex) {

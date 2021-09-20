@@ -1,5 +1,5 @@
 package br.ufscar.dc.pooa.java.peganoticias;
 
 abstract class ModelPrint {
-    abstract public void Print(Noticias noticias);
+    abstract public void Print(HtmlAttribute attributes);
 }
