@@ -1,11 +1,11 @@
 package br.ufscar.dc.pooa.java.peganoticias;
 
-// Classe abstrata modelo para a utilizacao dos
-
 import java.util.ArrayList;
 
-// Classe abstrata utilizada para implementar o método que define como sera utilizada
-// os atributos encontrados no modelHtmlParser.
+// Segunda extensao.
+/* Classe abstrata utilizada para implementar o método que define como sera utilizada
+ * os htmlAttributeValues encontrados de cada um dos htmlAttribute especificados. Essa
+ * classe e utilizada pela classe ModelHtmlParser. */
 abstract class ModelHtmlAttributeUse {
-    abstract public void use(ArrayList<HtmlAttribute> atributos);
+    abstract public void use(ArrayList<HtmlAttribute> htmlAttributes);
 }

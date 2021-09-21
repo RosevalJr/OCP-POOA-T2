@@ -2,52 +2,55 @@ package br.ufscar.dc.pooa.java.peganoticias;
 
 import java.util.ArrayList;
 
+/* Classe que encapsula os elementos que serao que definem uma busca de um "atributo"
+ * em uma pagina web dado uma url, tag, className e o attributeName. Alem disso, mantem
+ * uma estrutura para os elementos encontrados.*/
 public class HtmlAttribute {
     
-    // Argumentos para selecionar htmlAttribute.
+    // Argumentos para selecionar um htmlAttributeValue.
     private final String url;
-    private final String type;
-    private final String className;
-    private final String argument;
+    private final String tag; 
+    private final String className; 
+    private final String attributeName; 
     
-    // Estrutura para armazenar os atributos encontrados.
-    private final ArrayList<String> attributes;
+    // Estrutura para armazenar os atributosValues encontrados.
+    private final ArrayList<String> attributeValues; 
     
     // Inicializa todas as variaveis finais.
-    public HtmlAttribute(String url, String type, String className, String argument){
+    public HtmlAttribute(String url, String tag, String className, String attribute){
         this.url = url;
-        this.type = type;
+        this.tag = tag;
         this.className = className;
-        this.argument = argument;
-        this.attributes = new ArrayList<String>();
+        this.attributeName = attribute;
+        this.attributeValues = new ArrayList<String>();
         
     }
     
-    public String getAttribute(int i){
-        return attributes.get(i);
+    public String getAttributeValue(int i){
+        return attributeValues.get(i);
     }
     
-    public void addAttribute(String attribute){
-        this.attributes.add(attribute);
+    public void addAttributeValue(String element){
+        this.attributeValues.add(element);
     }
     
-    public int getAttributesSize(){
-        return attributes.size();
+    public int getAttributeValuesSize(){
+        return attributeValues.size();
     }
     
     public String getUrl(){
         return this.url;
     }
      
-    public String getType(){
-        return this.type;
+    public String getTag(){
+        return this.tag;
     }
     
     public String getClassName(){
         return this.className;
     }
     
-    public String getArgument(){
-        return this.argument;
+    public String getAttributeName(){
+        return this.attributeName;
     }
 }
