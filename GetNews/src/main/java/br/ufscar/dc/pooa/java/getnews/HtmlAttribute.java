@@ -10,17 +10,25 @@ public class HtmlAttribute {
     // Argumentos para selecionar um htmlAttributeValue.
     private final String url;
     private final String tag; 
-    private final String className; 
+    private final String className;
+    // Esses argumentos serao setados, caso seja feita uma busca por hierarquia.
+    // Caso contrario eles podem ser nulos.
+    private final String familyTag;
+    private final String familyClassName;
+    // -------------------------------------------------------------------------
     private final String attributeName; 
     
     // Estrutura para armazenar os atributosValues encontrados.
     private final ArrayList<String> attributeValues; 
     
     // Inicializa todas as variaveis finais.
-    public HtmlAttribute(String url, String tag, String className, String attribute){
+    public HtmlAttribute(String url, String tag, String className, String
+            familyTag, String familyClassName, String attribute){
         this.url = url;
         this.tag = tag;
         this.className = className;
+        this.familyTag = familyTag;
+        this.familyClassName = familyClassName;
         this.attributeName = attribute;
         this.attributeValues = new ArrayList<String>();
         
@@ -48,6 +56,14 @@ public class HtmlAttribute {
     
     public String getClassName(){
         return this.className;
+    }
+    
+    public String getFamilyTag(){
+        return this.familyTag;
+    }
+    
+    public String getFamilyClassName(){
+        return this.familyClassName;
     }
     
     public String getAttributeName(){

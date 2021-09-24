@@ -5,7 +5,10 @@ package br.ufscar.dc.pooa.java.getnews;
 public class Main {
 
     public static void main(String[] args){
-        printScreenGlobo();
+        //printScreenGlobo();
+        //printScreenOUL();
+        //printScreenBBC();
+        printWordCloudBBC();
     }
     
     public static void printScreenGlobo(){
@@ -20,10 +23,20 @@ public class Main {
     }
     
     public static void printScreenBBC(){
-        
+        ScreenPrint printer = new ScreenPrint();
+        SiteBbcLondon bbcLondon = new SiteBbcLondon();
+        bbcLondon.useHtmlAttributesValues(printer);
     }
     
     public static void printScreenOUL(){
-        
+        ScreenPrint printer = new ScreenPrint();
+        SiteOul oul = new SiteOul();
+        oul.useHtmlAttributesValues(printer);
+    }
+    
+    public static void printWordCloudBBC(){
+        WordCloudPrint printer = new WordCloudPrint();
+        SiteBbcLondon bbc = new SiteBbcLondon();
+        bbc.useHtmlAttributesValues(printer);
     }
 }

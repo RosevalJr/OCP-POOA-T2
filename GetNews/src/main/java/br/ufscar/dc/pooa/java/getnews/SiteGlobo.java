@@ -18,8 +18,11 @@ public class SiteGlobo extends ModelHtmlParser{
     // Sera retornado os titulos de element e os links das element.
     @Override
     protected void setHtmlAttributes() {
-        htmlAttributes.add(new HtmlAttribute("https://www.globo.com/","a", "post__link","title"));
-        htmlAttributes.add(new HtmlAttribute("https://www.globo.com/","a", "post__link","href"));
+        // Nao e necessario realizar uma busca hierquica para encontrar os links.
+        htmlAttributes.add(new HtmlAttribute("https://www.globo.com/", "a", 
+                "post__link", null, null,"title"));
+        htmlAttributes.add(new HtmlAttribute("https://www.globo.com/", "a", 
+                "post__link", null, null,"href"));
     }
     
     // Abaixa a pagina especificada, retornando-a como um Document, onde sera feita
@@ -39,7 +42,8 @@ public class SiteGlobo extends ModelHtmlParser{
 
             // Seleciona todos eles elementos dado uma tag e um class name especificado.
             Elements element = doc.select(htmlAttributes.get(i).getTag() + "." + htmlAttributes.get(i).getClassName());
-
+            
+            // Nao e necessario realizar uma busca hierquica para encontrar os links.
             // Caso o nome do atributo seja "text" e necessario acessar o conteudo.
             if(htmlAttributes.get(i).getAttributeName().equals("text"))
                 for(int j = 0 ; j < element.size(); j++)

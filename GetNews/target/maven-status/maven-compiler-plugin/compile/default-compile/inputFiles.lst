@@ -1,1 +1,9 @@
-/home/moleke/Documentos/T2-POOA/PegaNoticias/src/main/java/br/ufscar/dc/pooa/java/peganoticias/Principal.java
+/home/moleke/Documentos/final-OCP/OCP-POOA-T2/GetNews/src/main/java/br/ufscar/dc/pooa/java/getnews/SiteOul.java
+/home/moleke/Documentos/final-OCP/OCP-POOA-T2/GetNews/src/main/java/br/ufscar/dc/pooa/java/getnews/ModelHtmlParser.java
+/home/moleke/Documentos/final-OCP/OCP-POOA-T2/GetNews/src/main/java/br/ufscar/dc/pooa/java/getnews/SiteBbcLondon.java
+/home/moleke/Documentos/final-OCP/OCP-POOA-T2/GetNews/src/main/java/br/ufscar/dc/pooa/java/getnews/HtmlAttribute.java
+/home/moleke/Documentos/final-OCP/OCP-POOA-T2/GetNews/src/main/java/br/ufscar/dc/pooa/java/getnews/ModelHtmlAttributeUse.java
+/home/moleke/Documentos/final-OCP/OCP-POOA-T2/GetNews/src/main/java/br/ufscar/dc/pooa/java/getnews/SiteGlobo.java
+/home/moleke/Documentos/final-OCP/OCP-POOA-T2/GetNews/src/main/java/br/ufscar/dc/pooa/java/getnews/ScreenPrint.java
+/home/moleke/Documentos/final-OCP/OCP-POOA-T2/GetNews/src/main/java/br/ufscar/dc/pooa/java/getnews/CsvPrint.java
+/home/moleke/Documentos/final-OCP/OCP-POOA-T2/GetNews/src/main/java/br/ufscar/dc/pooa/java/getnews/Main.java
