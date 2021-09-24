@@ -1,4 +1,4 @@
-package br.ufscar.dc.pooa.java.peganoticias;
+package br.ufscar.dc.pooa.java.getnews;
 
 import java.util.ArrayList;
 

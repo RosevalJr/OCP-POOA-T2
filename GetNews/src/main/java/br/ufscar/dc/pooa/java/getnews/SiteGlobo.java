@@ -1,4 +1,4 @@
-package br.ufscar.dc.pooa.java.peganoticias;
+package br.ufscar.dc.pooa.java.getnews;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,8 +11,8 @@ import java.io.IOException;
  * para que elas sejam utilizadas por um metodo especificado como entrada. */
 public class SiteGlobo extends ModelHtmlParser{
 
-    public SiteGlobo (ModelHtmlAttributeUse howToUse){
-        super(howToUse);
+    public SiteGlobo (){
+        super();
     }
     
     // Sera retornado os titulos de element e os links das element.

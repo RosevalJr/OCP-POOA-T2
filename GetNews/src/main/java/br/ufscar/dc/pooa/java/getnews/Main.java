@@ -1,4 +1,4 @@
-package br.ufscar.dc.pooa.java.peganoticias;
+package br.ufscar.dc.pooa.java.getnews;
 
 /* Exemplificando a utilizacao das classes implementadas para a extracao de titulos
  * de noticias principais do globo e seus links, printando na tela o que foi encontrado.*/
@@ -14,8 +14,16 @@ public class Main {
         // Instanciando classe que dita o modelo de como serão utilizadas as strings retornadas do globo.
         ScreenPrint printer = new ScreenPrint();
         // Instanciando a classe que define de onde e como serão retiradas as strings
-        SiteGlobo globo = new SiteGlobo(printer);
+        SiteGlobo globo = new SiteGlobo();
         // Utiliza as strings retornadas nesta classe.
-        globo.useHtmlAttributesValues();
+        globo.useHtmlAttributesValues(printer);
+    }
+    
+    public static void printScreenBBC(){
+        
+    }
+    
+    public static void printScreenOUL(){
+        
     }
 }
