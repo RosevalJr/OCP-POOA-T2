@@ -2,12 +2,12 @@ package br.ufscar.dc.pooa.java.getnews;
 
 import java.util.ArrayList;
 
-/* Classe utilizada para especificar como serao utilizadas os HtmlAttributValues (String)
+/* Classe utilizada para especificar como serao utilizadas os HtmlAttributValues (Strings)
  * retornadas, nesta classe as Strings sao apenas printadas na tela, antes especificando
  * de qual URL elas foram retiradas. */
 public class ScreenPrint extends ModelHtmlAttributeUse{
 
-    // Apenas percorre todos os htmlAttributes e printa os htmlAttributeValues (Strings)
+    // Percorre todos os htmlAttributes e printa os htmlAttributeValues (Strings)
     // para cada um deles na tela, especificando antes em qual URL foi retirado.
     @Override
     public void use(ArrayList<HtmlAttribute> htmlAttributes) {
@@ -18,7 +18,4 @@ public class ScreenPrint extends ModelHtmlAttributeUse{
             }
         }
     }
-    
-    
-    
 }

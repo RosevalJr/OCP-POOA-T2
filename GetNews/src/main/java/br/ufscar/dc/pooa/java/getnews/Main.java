@@ -1,42 +1,37 @@
 package br.ufscar.dc.pooa.java.getnews;
 
 /* Exemplificando a utilizacao das classes implementadas para a extracao de titulos
- * de noticias principais do globo e seus links, printando na tela o que foi encontrado.*/
+ * e links de noticias do Oul, Globo e Bbc de londres, realizando o print na tela,
+ *  geracao de um csv file e geracao de uma imagem de um wordCloud. */
 public class Main {
 
     public static void main(String[] args){
-        //printScreenGlobo();
-        //printScreenOUL();
-        //printScreenBBC();
-        printWordCloudBBC();
+        printScreenOul();
+        printCsvGlobo();
+        printWordCloudBbc();
     }
     
-    public static void printScreenGlobo(){
-        // Classe que define como sera utilizado as strings retornadas foi implementada.
-        // Ela agora precisa ser passada junto com o contrutor da classe que realiza a selecao.
-        // Instanciando classe que dita o modelo de como serão utilizadas as strings retornadas do globo.
-        ScreenPrint printer = new ScreenPrint();
+    public static void printCsvGlobo(){
+        // Instanciando classe que dita o modelo de como serão utilizadas
+        // as strings retornadas do globo.
+        CsvPrint use = new CsvPrint();
+        
         // Instanciando a classe que define de onde e como serão retiradas as strings
-        SiteGlobo globo = new SiteGlobo();
+        GloboParser globo = new GloboParser();
+        
         // Utiliza as strings retornadas nesta classe.
-        globo.useHtmlAttributesValues(printer);
+        globo.useHtmlAttributesValues(use);
     }
     
-    public static void printScreenBBC(){
-        ScreenPrint printer = new ScreenPrint();
-        SiteBbcLondon bbcLondon = new SiteBbcLondon();
-        bbcLondon.useHtmlAttributesValues(printer);
+    public static void printScreenOul(){
+        ScreenPrint use = new ScreenPrint();
+        OulParser oul = new OulParser();
+        oul.useHtmlAttributesValues(use);
     }
     
-    public static void printScreenOUL(){
-        ScreenPrint printer = new ScreenPrint();
-        SiteOul oul = new SiteOul();
-        oul.useHtmlAttributesValues(printer);
-    }
-    
-    public static void printWordCloudBBC(){
-        WordCloudPrint printer = new WordCloudPrint();
-        SiteBbcLondon bbc = new SiteBbcLondon();
-        bbc.useHtmlAttributesValues(printer);
+    public static void printWordCloudBbc(){
+        WordCloudPrint use = new WordCloudPrint();
+        BbcLondonParser bbc = new BbcLondonParser();
+        bbc.useHtmlAttributesValues(use);
     }
 }

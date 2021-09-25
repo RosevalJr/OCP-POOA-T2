@@ -2,23 +2,24 @@ package br.ufscar.dc.pooa.java.getnews;
 
 import java.util.ArrayList;
 
-/* Classe que encapsula os elementos que serao que definem uma busca de um "atributo"
- * em uma pagina web dado uma url, tag, className e o attributeName. Alem disso, mantem
- * uma estrutura para os elementos encontrados.*/
+/* Classe que encapsula os elementos que definem uma busca de um "atributo"
+ * em uma pagina web dado uma url, tag, className e o attributeName. Também, pode ser
+ * armazenado familyTag e familyClassName para realizar uma busca hierarquica. 
+ * Alem disso, mantem uma estrutura para os elementos (Strings) encontrados.*/
 public class HtmlAttribute {
     
     // Argumentos para selecionar um htmlAttributeValue.
     private final String url;
     private final String tag; 
     private final String className;
-    // Esses argumentos serao setados, caso seja feita uma busca por hierarquia.
-    // Caso contrario eles podem ser nulos.
+    // Esses argumentos serao setados, caso seja desejado fazer uma busca por 
+    // hierarquia, caso contrario eles podem ser nulos.
     private final String familyTag;
     private final String familyClassName;
     // -------------------------------------------------------------------------
     private final String attributeName; 
     
-    // Estrutura para armazenar os atributosValues encontrados.
+    // Estrutura para armazenar os atributosValues (Strings) encontrados.
     private final ArrayList<String> attributeValues; 
     
     // Inicializa todas as variaveis finais.
@@ -34,14 +35,17 @@ public class HtmlAttribute {
         
     }
     
+    // Pega uma string especifica
     public String getAttributeValue(int i){
         return attributeValues.get(i);
     }
     
+    // Adiciona uma string na estrutura.
     public void addAttributeValue(String element){
         this.attributeValues.add(element);
     }
     
+    // Pega a quantidade de strings presentes na estrutura.
     public int getAttributeValuesSize(){
         return attributeValues.size();
     }
