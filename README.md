@@ -24,7 +24,7 @@ Diante disso, o projeto da ferramenta apresenta 2 classes abstratas que servem d
 
 **"Como eu faço para incluir um novo site de notícias? Onde eu tenho que mexer?"**
 
-Inicialmente, é importante destacar o que é a classe ``HtmlAttribute`` essa classe encapsula os atributos que definem uma busca de um "atributo" em uma pagina web dado uma url, tag, className e o attributeName. Também, possobilita o armazenamento dos atributos familyTag e familyClassName para realizar uma busca hierarquica. Alem disso, mantem um ArrayList<String> chamado ``htmlAtributeValues`` para os elementos encontrados nesta busca. O construtor desta classe e a definição de seus atributos pode ser observado a seguir:
+Inicialmente, é importante destacar o que é a classe ``HtmlAttribute`` essa classe encapsula os atributos que definem uma busca de um "atributo" em uma página web dado uma url, tag, className e o attributeName. Também, possobilita o armazenamento dos atributos familyTag e familyClassName para realizar uma busca hierarquica. Além disso, mantem um ArrayList<String> chamado ``htmlAtributeValues`` para os elementos encontrados nesta busca. O construtor desta classe e a definição de seus atributos pode ser observado a seguir:
 
 ```Java
 // ...
@@ -62,7 +62,7 @@ public class HtmlAttribute {
 
 Para incluir um novo site de notícias, você deve implementar uma nova classe que herda da classe abstrata ``ModelHtmlParser``, implementando os métodos abstratos ``setHtmlAttributes`` e ``selectAttributesValues``.
 
-Na implementação do método ``setHtmlAttributes``, você deve setar os HtmlAttributes que definem de onde será tirado as informações das notícias e quais informações serão extraidas. Para cada HtmlAttribute setado será feita uma busca na pagina html do site especificado no htmlAttribute, sendo que dentro de cada htmlAttribute há um ArrayList<String> para armazenam as informações extraidas. Um exemplo de implementação deste método na classe ```` para extrair títulos das notícias e links da noticias pode ser observado a seguir:
+Na implementação do método ``setHtmlAttributes``, você deve setar os HtmlAttributes que definem de onde será tirado as informações das notícias e quais informações serão extraidas. Para cada HtmlAttribute setado será feita uma busca na pagina html do site especificado no htmlAttribute, sendo que dentro de cada htmlAttribute há um ArrayList<String> para armazenar as informações extraídas. Um exemplo de implementação deste método na classe ```` para extrair títulos das notícias e links das notícias pode ser observado a seguir:
 
 ```Java
 // Tanto o titulo quanto o link se encontram dentro da mesma tag a.post__link
@@ -78,7 +78,7 @@ protected void setHtmlAttributes() {
 }
 ```
 
-Na implementação do método ``selectAttributesValues``, você deve especificar como serão extraidos as informações dos sites de notícias (dado os htmlAttributes setados pelo método ``setHtmlAttributes``) e popular os vetores de Strings (htmlAttributeValues) de cada htmlAttribute. Um exemplo de implementação deste método na classe ``GloboParser``, que utiliza o ``Jsoup`` para baixar as paginas html e realizar a seleção, pode ser observado a seguir:
+Na implementação do método ``selectAttributesValues``, você deve especificar como serão extraidos as informações dos sites de notícias (dado os htmlAttributes setados pelo método ``setHtmlAttributes``) e popular os vetores de Strings (htmlAttributeValues) de cada htmlAttribute. Um exemplo de implementação deste método na classe ``GloboParser``, que utiliza o ``Jsoup`` para baixar as páginas html e realizar a seleção, pode ser observado a seguir:
 
 ```Java
 // Abaixa a pagina especificada (Jsoup), retornando-a como um Document, onde sera feita
@@ -114,13 +114,13 @@ protected void selectAttributesValues(){
 }
 ```
 
-Importante destacar que, dado essa estratégia utilizada para prever a extensão 1 especificado pelo professor, a ferramenta não esta limitada a utilizar uma determinada ferramenta para realizar o donwload das paginas html. Com a implementação deste dois método abstrado é preciso apenas setar o que será extraido das paginas html seguindo os atributos da classe ``HtmlAttribute`` e realizar as buscas de cada um dos HtmlAttributes populando o ArrayList<String> de cada um dos HtmlAttributes. Além disso, dado essa implementação a ferramenta não está limitada a extrair informações de sites de notícias, ela pode extrair informações de qualquer site desejado.
+Importante destacar que, dada essa estratégia utilizada para prever a extensão 1 especificado pelo professor, a ferramenta não está limitada a utilizar uma determinada ferramenta para realizar o download das páginas html. Com a implementação deste dois métodos abstratos é preciso apenas setar o que será extraído das páginas html seguindo os atributos da classe ``HtmlAttribute`` e realizar as buscas de cada um dos HtmlAttributes populando o ArrayList<String> de cada um dos HtmlAttributes. Além disso, dada essa implementação a ferramenta não está limitada a extrair informações de sites de notícias, ela pode extrair informações de qualquer site desejado.
 
-**"Como eu faço para incluir um algoritmo para processar as notícias extraidas? Onde eu tenho que mexer?"**
+**"Como eu faço para incluir um algoritmo para processar as notícias extraídas? Onde eu tenho que mexer?"**
 
-Para incluir um algortimo para processar notícias extraidas, é preciso implementar uma classe que herde da classe abstrta ``ModelHtmlAttributeUse``, implementando seu método abstrato ``Use``.
+Para incluir um algoritmo para processar notícias extraídas, é preciso implementar uma classe que herde da classe abstrata ``ModelHtmlAttributeUse``, implementando seu método abstrato ``Use``.
 
-Na implementação deste método ``Use`` é necessario processar os HtmlAttributes que serão passados como entradas. Dentro destes HtmlAttributes, é possivel acessar os metadados da busca que foi realizada e os HtmlAttributeValues, que são as Strings que foram extraidas na busca realizada. Diante disso, é aqui que será definido como as notícias extraidas serão utilizadas. A implementação de um método ``Use``, que apenas printa na tela a URL de onde foi retiradas as Strings e as Strings extraidas logo em seguida para cada um dos HtmlAttributes passados como entrada, pode ser observado a seguir:
+Na implementação deste método ``Use`` é necessário processar os HtmlAttributes que serão passados como entradas. Dentro destes HtmlAttributes, é possível acessar os metadados da busca que foi realizada e os HtmlAttributeValues, que são as Strings que foram extraídas na busca realizada. Diante disso, é aqui que será definido como as notícias extraídas serão utilizadas. A implementação de um método ``Use``, que apenas printa na tela a URL de onde foi retiradas as Strings e as Strings extraídas logo em seguida para cada um dos HtmlAttributes passados como entrada, pode ser observado a seguir:
 
 ```Java
 // Percorre todos os htmlAttributes e printa os htmlAttributeValues (Strings)
@@ -136,11 +136,11 @@ public void use(ArrayList<HtmlAttribute> htmlAttributes) {
 }
 ```
 
-Importante destacar que, a escolha de ter como entrada deste método os HtmlAttributes foi feita para que o método ``Use`` que processa esses dados tenha acesso aos metadados da busca realizada, sendo que em alguns casos isso pode ser interessante como na implementação visualizada a cima e, possivelmente, em uma implementação do método que aplique algum algoritmo de aprendizado de maquina, onde possa ser pertinente saber de onde foram retiradas as informações do site, quais tags foram buscadas e etc.
+Importante destacar que, a escolha de ter como entrada deste método os HtmlAttributes foi feita para que o método ``Use`` que processa esses dados tenha acesso aos metadados da busca realizada, sendo que em alguns casos isso pode ser interessante como na implementação visualizada acima e, possivelmente, em uma implementação do método que aplique algum algoritmo de aprendizado de máquina, onde possa ser pertinente saber de onde foram retiradas as informações do site, quais tags foram buscadas e etc.
 
 **"Como eu utilizo as extensões implementadas?"**
 
-Um cliente que deseja utilizar as classes das extensões especificadas deve apenas instanciar uma classe que herde de ``ModelAttributeUse`` e outra que herde de ``ModelHtmlParse``. Por fim, o método ``useHtmlAttributesValues`` da classe que herda de ``ModelHtmlParse`` deve ser chamado, passando como parametro a classe que herda de ``ModelAttributeUse``. Isso pode ser melhor visualizado dentro da classe ``Main`` da ferramenta que possue alguns exemplos de utilização das classe implementadas, como pode ser observado a seguir. Dado a estratégia de implementação da ferramenta, uma unica instancia de uma classe que herda da classe ``ModelHtmlParse`` pode chamar o método ``useHtmlAttributesValues`` multiplas vezes, passando cada vez diferentes instancias de classes que herdam de ``ModelHtmlAttributesUse``.
+Um cliente que deseja utilizar as classes das extensões especificadas deve apenas instanciar uma classe que herde de ``ModelAttributeUse`` e outra que herde de ``ModelHtmlParse``. Por fim, o método ``useHtmlAttributesValues`` da classe que herda de ``ModelHtmlParse`` deve ser chamado, passando como parâmetro a classe que herda de ``ModelAttributeUse``. Isso pode ser melhor visualizado dentro da classe ``Main`` da ferramenta que possui alguns exemplos de utilização das classe implementadas, como pode ser observado a seguir. Dado a estratégia de implementação da ferramenta, uma única instância de uma classe que herda da classe ``ModelHtmlParse`` pode chamar o método ``useHtmlAttributesValues`` multiplas vezes, passando cada vez diferentes instâncias de classes que herdam de ``ModelHtmlAttributesUse``.
 
 ```Java
 package br.ufscar.dc.pooa.java.getnews;
