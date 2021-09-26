@@ -81,4 +81,66 @@ Importante destacar que, dado essa estratégia utilizada para prever a extensão
 
 **"Como eu faço para incluir um algoritmo para processar as notícias extraidas? Onde eu tenho que mexer?"**
 
+Para incluir um algortimo para processar notícias extraidas, é preciso implementar uma classe que herde da classe abstrta ``ModelHtmlAttributeUse``, implementando seu método abstrato ``Use``.
 
+Na implementação deste método ``Use`` é necessario processar os HtmlAttributes que serão passados como entradas. Dentro destes HtmlAttributes, é possivel acessar os metadados da busca que foi realizada e os HtmlAttributeValues, que são as Strings que foram extraidas na busca realizada. Diante disso, é aqui que será definido como as notícias extraidas serão utilizadas. A implementação de um método ``Use``, que apenas printa na tela a URL de onde foi retiradas as Strings e as Strings extraidas logo em seguida para cada um dos HtmlAttributes passados como entrada, pode ser observado a seguir:
+
+```Java
+// Percorre todos os htmlAttributes e printa os htmlAttributeValues (Strings)
+// para cada um deles na tela, especificando antes em qual URL foi retirado.
+@Override
+public void use(ArrayList<HtmlAttribute> htmlAttributes) {
+    for(int i = 0 ; i < htmlAttributes.size(); i++){
+        System.out.println("Retirado da URL: " + htmlAttributes.get(i).getUrl());
+        for(int j = 0 ; j < htmlAttributes.get(i).getAttributeValuesSize(); j++){
+            System.out.println(htmlAttributes.get(i).getAttributeValue(j));
+        }
+    }
+}
+```
+
+Importante destacar que, a escolha de ter como entrada deste método os HtmlAttributes foi feita para que o método ``Use`` que processa esses dados tenha acesso aos metadados da busca realizada, sendo que em alguns casos isso pode ser interessante como na implementação visualizada a cima e, possivelmente, em uma implementação do método que aplique algum algoritmo de aprendizado de maquina, onde possa ser pertinente saber de onde foram retiradas as informações do site, quais tags foram buscadas e etc.
+
+**"Como eu utilizo as extensões implementadas?"**
+
+Um cliente que deseja utilizar as classes das extensões especificadas deve apenas instanciar uma classe que herde de ``ModelAttributeUse`` e outra que herde de ``ModelHtmlParse``. Por fim, o método ``useHtmlAttributesValues`` da classe que herda de ``ModelHtmlParse`` deve ser chamado, passando como parametro a classe que herda de ``ModelAttributeUse``. Isso pode ser melhor visualizado dentro da classe ``Main`` da ferramenta que possue alguns exemplos de utilização das classe implementadas, como pode ser observado a seguir. Dado a estratégia de implementação da ferramenta, uma unica instancia de uma classe que herda da classe ``ModelHtmlParse`` pode chamar o método ``useHtmlAttributesValues`` multiplas vezes, passando cada vez diferentes instancias de classes que herdam de ``ModelHtmlAttributesUse``.
+
+```Java
+package br.ufscar.dc.pooa.java.getnews;
+
+/* Exemplificando a utilizacao das classes implementadas para a extracao de titulos
+ * e links de noticias do Oul, Globo e Bbc de londres, realizando o print na tela,
+ *  geracao de um csv file e geracao de uma imagem de um wordCloud. */
+public class Main {
+
+    public static void main(String[] args){
+        printScreenOul();
+        printCsvGlobo();
+        printWordCloudBbc();
+    }
+    
+    public static void printCsvGlobo(){
+        // Instanciando classe que dita o modelo de como serão utilizadas
+        // as strings retornadas do globo.
+        CsvPrint use = new CsvPrint();
+        
+        // Instanciando a classe que define de onde e como serão retiradas as strings
+        GloboParser globo = new GloboParser();
+        
+        // Utiliza as strings retornadas nesta classe.
+        globo.useHtmlAttributesValues(use);
+    }
+    
+    public static void printScreenOul(){
+        ScreenPrint use = new ScreenPrint();
+        OulParser oul = new OulParser();
+        oul.useHtmlAttributesValues(use);
+    }
+    
+    public static void printWordCloudBbc(){
+        WordCloudPrint use = new WordCloudPrint();
+        BbcLondonParser bbc = new BbcLondonParser();
+        bbc.useHtmlAttributesValues(use);
+    }
+}
+```
