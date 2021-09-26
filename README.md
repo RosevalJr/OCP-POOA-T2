@@ -24,7 +24,7 @@ Diante disso, o projeto da ferramenta apresenta 2 classes abstratas que servem d
 
 **"Como eu faço para incluir um novo site de notícias? Onde eu tenho que mexer?"**
 
-Inicialmente, é importante destacar o que é a classe ``HtmlAttribute`` essa classe encapsula os atributos que definem uma busca de um "atributo" em uma página web dado uma url, tag, className e o attributeName. Também, possobilita o armazenamento dos atributos familyTag e familyClassName para realizar uma busca hierarquica. Além disso, mantem um ArrayList<String> chamado ``htmlAtributeValues`` para os elementos encontrados nesta busca. O construtor desta classe e a definição de seus atributos pode ser observado a seguir:
+Inicialmente, é importante destacar o que é a classe ``HtmlAttribute`` essa classe encapsula os atributos que definem uma busca de um "atributo" em uma página web dado uma url, tag, className e o attributeName. Também, possibilita o armazenamento dos atributos familyTag e familyClassName para realizar uma busca hierarquica. Além disso, mantém um ArrayList<String> chamado ``htmlAtributeValues`` para os elementos encontrados nesta busca. O construtor desta classe e a definição de seus atributos pode ser observado a seguir:
 
 ```Java
 // ...
@@ -62,7 +62,7 @@ public class HtmlAttribute {
 
 Para incluir um novo site de notícias, você deve implementar uma nova classe que herda da classe abstrata ``ModelHtmlParser``, implementando os métodos abstratos ``setHtmlAttributes`` e ``selectAttributesValues``.
 
-Na implementação do método ``setHtmlAttributes``, você deve setar os HtmlAttributes que definem de onde será tirado as informações das notícias e quais informações serão extraidas. Para cada HtmlAttribute setado será feita uma busca na pagina html do site especificado no htmlAttribute, sendo que dentro de cada htmlAttribute há um ArrayList<String> para armazenar as informações extraídas. Um exemplo de implementação deste método na classe ```` para extrair títulos das notícias e links das notícias pode ser observado a seguir:
+Na implementação do método ``setHtmlAttributes``, você deve setar os HtmlAttributes que definem de onde será tirado as informações das notícias e quais informações serão extraidas. Para cada HtmlAttribute setado será feita uma busca na página html do site especificado no htmlAttribute, sendo que dentro de cada htmlAttribute há um ArrayList<String> para armazenar as informações extraídas. Um exemplo de implementação deste método na classe ```` para extrair títulos das notícias e links das notícias pode ser observado a seguir:
 
 ```Java
 // Tanto o titulo quanto o link se encontram dentro da mesma tag a.post__link
@@ -140,7 +140,7 @@ Importante destacar que, a escolha de ter como entrada deste método os HtmlAttr
 
 **"Como eu utilizo as extensões implementadas?"**
 
-Um cliente que deseja utilizar as classes das extensões especificadas deve apenas instanciar uma classe que herde de ``ModelAttributeUse`` e outra que herde de ``ModelHtmlParse``. Por fim, o método ``useHtmlAttributesValues`` da classe que herda de ``ModelHtmlParse`` deve ser chamado, passando como parâmetro a classe que herda de ``ModelAttributeUse``. Isso pode ser melhor visualizado dentro da classe ``Main`` da ferramenta que possui alguns exemplos de utilização das classe implementadas, como pode ser observado a seguir. Dado a estratégia de implementação da ferramenta, uma única instância de uma classe que herda da classe ``ModelHtmlParse`` pode chamar o método ``useHtmlAttributesValues`` multiplas vezes, passando cada vez diferentes instâncias de classes que herdam de ``ModelHtmlAttributesUse``.
+Um cliente que deseja utilizar as classes das extensões especificadas deve apenas instanciar uma classe que herde de ``ModelAttributeUse`` e outra que herde de ``ModelHtmlParse``. Por fim, o método ``useHtmlAttributesValues`` da classe que herda de ``ModelHtmlParse`` deve ser chamado, passando como parâmetro a classe que herda de ``ModelAttributeUse``. Isso pode ser melhor visualizado dentro da classe ``Main`` da ferramenta que possui alguns exemplos de utilização das classe implementadas, como pode ser observado a seguir. Dado a estratégia de implementação da ferramenta, uma única instância de uma classe que herda da classe ``ModelHtmlParse`` pode chamar o método ``useHtmlAttributesValues`` múltiplas vezes, passando cada vez diferentes instâncias de classes que herdam de ``ModelHtmlAttributesUse``.
 
 ```Java
 package br.ufscar.dc.pooa.java.getnews;
