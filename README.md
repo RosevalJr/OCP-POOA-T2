@@ -78,7 +78,7 @@ protected void setHtmlAttributes() {
 }
 ```
 
-Na implementação do método ``selectAttributesValues``, você deve especificar como serão extraidos as informações dos sites de notícias (dado os ``HtmlAttributes`` setados pelo método ``setHtmlAttributes``) e popular os vetores de Strings (``attributeValues``) de cada ``HtmlAttribute``. Um exemplo de implementação deste método na classe ``GloboParser``, que utiliza o ``Jsoup`` para baixar as páginas html e realizar a seleção, pode ser observado a seguir:
+Na implementação do método ``selectAttributesValues``, você deve especificar como serão extraidos as informações dos sites de notícias (dado os ``HtmlAttributes`` setados pelo método ``setHtmlAttributes``) e popular o ArraList<String> (``attributeValues``) de cada ``HtmlAttribute``. Um exemplo de implementação deste método na classe ``GloboParser``, que utiliza o ``Jsoup`` para baixar as páginas html e realizar a seleção, pode ser observado a seguir:
 
 ```Java
 // Abaixa a pagina especificada (Jsoup), retornando-a como um Document, onde sera feita
