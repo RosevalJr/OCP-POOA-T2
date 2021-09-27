@@ -114,7 +114,7 @@ protected void selectAttributesValues(){
 }
 ```
 
-Importante destacar que, dada essa estratégia utilizada para prever a extensão 1 especificado pelo professor, a ferramenta não está limitada a utilizar uma determinada ferramenta para realizar o download das páginas html. Com a implementação deste dois métodos abstratos é preciso apenas setar o que será extraído das páginas html, seguindo os atributos da classe ``HtmlAttribute``, e realizar as buscas de cada um dos ``HtmlAttribute`` populando o ArrayList<String> (``attributeValues``) de cada um dos ``HtmlAttributes``. Além disso, dada essa implementação a ferramenta não está limitada a extrair informações de sites de notícias, ela pode extrair informações de qualquer site desejado.
+Importante destacar que, dada essa estratégia utilizada para prever a extensão 1 especificado pelo professor, a ferramenta não está limitada a utilizar uma determinada ferramenta para realizar o download das páginas html. Com a implementação deste dois métodos abstratos é preciso apenas setar o que será extraído das páginas html, seguindo os atributos da classe ``HtmlAttribute``, e realizar as buscas de cada um dos ``HtmlAttribute`` populando o ArrayList\<String\> (``attributeValues``) de cada um dos ``HtmlAttributes``. Além disso, dada essa implementação a ferramenta não está limitada a extrair informações de sites de notícias, ela pode extrair informações de qualquer site desejado, como extrair comentarios de websites de compras ou extrair titulos de videos do youtube.
 
 **"Como eu faço para incluir um algoritmo para processar as notícias extraídas? Onde eu tenho que mexer?"**
 
