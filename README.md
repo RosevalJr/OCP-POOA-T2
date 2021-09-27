@@ -62,7 +62,7 @@ public class HtmlAttribute {
 
 Para incluir um novo site de notícias, você deve implementar uma nova classe que herda da classe abstrata ``ModelHtmlParser``, implementando os métodos abstratos ``setHtmlAttributes`` e ``selectAttributesValues``.
 
-Na implementação do método ``setHtmlAttributes``, você deve setar os ``HtmlAttributes`` que definem de onde será tirado as informações das notícias e quais informações serão extraidas. Para cada ``HtmlAttribute`` setado será feita uma busca na página html do site especificado no ``HtmlAttribute``, sendo que dentro de cada ``HtmlAttribute`` há um ArrayList<String> para armazenar as informações extraídas. Um exemplo de implementação deste método na classe ``GloboParser``, para extrair títulos e links das notícias, pode ser observado a seguir:
+Na implementação do método ``setHtmlAttributes``, você deve setar os ``HtmlAttributes`` que definem de onde será tirado as informações das notícias e quais informações serão extraidas. Para cada ``HtmlAttribute`` setado será feita uma busca na página html do site especificado no ``HtmlAttribute``, sendo que dentro de cada ``HtmlAttribute`` há um ArrayList\<String\> (``attributeValues``) para armazenar as informações extraídas. Um exemplo de implementação deste método na classe ``GloboParser``, para extrair títulos e links das notícias, pode ser observado a seguir:
 
 ```Java
 // Tanto o titulo quanto o link se encontram dentro da mesma tag a.post__link
