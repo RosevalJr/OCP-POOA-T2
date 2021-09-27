@@ -6,7 +6,7 @@
 
 ---
 
-> Para o maior detalhamento desta ferramenta, com explicações mais detalhadas de suas funcionalidades e especificações para sua extensão, o seguinte vídeo tutorial foi gravado e postado no youtube: <https://youtu.be/mXFNUSFyVDY>
+> Para o maior detalhamento desta ferramenta, com explicações mais detalhadas de suas funcionalidades, funcionamento e especificações para sua extensão, o seguinte vídeo tutorial foi gravado e postado no youtube: <https://youtu.be/mXFNUSFyVDY>
 
 Neste repositório, é apresentada uma ferramenta que exemplifica a aplicação do princípio Aberto-Fechado (OCP) no contexto da programação orientada a objetos, respeitando também o princípio da responsabilidade única (SRP). Sendo assim, é possível estender a ferramenta sem que sejam feitas mudanças em código já funcional, e todos módulos de código da ferramenta possuem apenas uma vertente de mudança, apresentando alta flexibilidade, facilidade de manutenção e reutilização.
 
