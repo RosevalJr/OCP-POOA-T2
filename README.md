@@ -120,7 +120,7 @@ Importante destacar que, dada essa estratégia utilizada para prever a extensão
 
 Para incluir um algoritmo para processar notícias extraídas, é preciso implementar uma classe que herde da classe abstrata ``ModelHtmlAttributeUse``, implementando seu método abstrato ``Use``.
 
-Na implementação deste método ``Use`` é necessário processar os ``HtmlAttribute`` que serão passados como entradas. Dentro destes ``HtmlAttribute``, é possível acessar os metadados da busca que foi realizada e os ``attributeValues``, que são as Strings que foram extraídas na busca realizada. Diante disso, é aqui que será definido como as notícias extraídas serão utilizadas. A implementação de um método ``Use``, que apenas printa na tela a URL e os ``attributeValues`` logo em seguida para cada um dos ``HtmlAttribute`` passados como entrada, pode ser observado a seguir:
+Na implementação deste método ``Use`` é necessário processar os ``HtmlAttribute`` que serão passados como entradas. Dentro destes ``HtmlAttribute``, é possível acessar os metadados da busca que foi realizada e os ``attributeValues``, que são as Strings que foram extraídas na busca realizada. Diante disso, é aqui que será definido como as notícias extraídas serão utilizadas. A implementação de um método ``Use``, que apenas printa na tela a URL e os ``attributeValues`` para cada um dos ``HtmlAttribute`` passados como entrada, pode ser observado a seguir:
 
 ```Java
 // Percorre todos os htmlAttributes e printa os htmlAttributeValues (Strings)
