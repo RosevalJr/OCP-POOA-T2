@@ -5,10 +5,11 @@ package br.ufscar.dc.pooa.java.getnews;
  *  geracao de um csv file e geracao de uma imagem de um wordCloud. */
 public class Main {
 
+    // Possivel que ocorra um erro de conexao, caso o website recuse o handshake!
     public static void main(String[] args){
-        printScreenOul();
-        printCsvGlobo();
-        printWordCloudBbc();
+        // printScreenOul(); // Printa na tela.
+        // printCsvGlobo(); // Gera um arquivo CSV na raiz do projeto.
+        printWordCloudBbc(); // Gera uma imagem de um wordCloud na raiz do projeto.
     }
     
     public static void printCsvGlobo(){
