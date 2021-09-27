@@ -136,7 +136,7 @@ public void use(ArrayList<HtmlAttribute> htmlAttributes) {
 }
 ```
 
-Importante destacar que, a escolha de ter como entrada deste método os ``HtmlAttribute`` foi feita para que o método ``Use`` que processa esses dados tenha acesso aos metadados da busca realizada, sendo que em alguns casos isso pode ser interessante como na implementação visualizada acima e, possivelmente, em uma implementação do método que aplique algum algoritmo de aprendizado de máquina, onde possa ser pertinente saber de onde foram retiradas as informações do site, quais tags foram buscadas e etc.
+Importante destacar que, a escolha de ter como entrada deste método os ``HtmlAttribute`` foi feita para que o método ``Use`` que processa esses dados tenha acesso aos metadados da busca realizada, sendo que em alguns casos isso pode ser interessante, como na implementação visualizada acima e, possivelmente, em uma implementação do método que aplique algum algoritmo de aprendizado de máquina, onde possa ser pertinente saber de onde foram retiradas as informações do site, quais tags foram buscadas e etc.
 
 **"Como eu utilizo as extensões implementadas?"**
 
